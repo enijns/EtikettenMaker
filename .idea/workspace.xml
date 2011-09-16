@@ -59,10 +59,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PdfGenerator.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PdfGenerator.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/egon/PdfGenerator.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="21" selection-start="854" selection-end="1048" vertical-scroll-proportion="0.0">
+            <state line="31" column="57" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.43418467">
               <folding />
             </state>
           </provider>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EtikkettenMaker.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EtikkettenMaker.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/egon/EtikkettenMaker.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="6" selection-start="3186" selection-end="3186" vertical-scroll-proportion="0.031434186">
+            <state line="120" column="35" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,8 +142,8 @@
         <option value="$PROJECT_DIR$/project/build/EtikkettenMakerProject.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/egon/EtikkettenInputReaders.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/egon/EtikkettenMaker.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/egon/PdfGenerator.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/egon/ConfigReader.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/egon/PdfGenerator.scala" />
       </list>
     </option>
   </component>
@@ -234,6 +234,36 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="egon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="etikkettenMaker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="etikkettenMaker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="egon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EtikkettenInputReaders.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -595,11 +625,6 @@
         <state line="11" column="0" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/egon/PdfGenerator.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="21" selection-start="854" selection-end="1048" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/bloemetje_etiket.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -634,7 +659,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/egon/EtikkettenMaker.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="6" selection-start="3186" selection-end="3186" vertical-scroll-proportion="0.031434186">
+        <state line="120" column="35" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/egon/PdfGenerator.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="57" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.43418467">
           <folding />
         </state>
       </provider>
