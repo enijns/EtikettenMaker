@@ -1,0 +1,6 @@
+#Source Hashes
+#Fri Sep 16 13:27:10 CEST 2011
+src\\main\\scala\\egon\\PdfGenerator.scala=c8e40f17af6477ca20f323d9ad1bfc59f9ec9628
+src\\main\\scala\\egon\\EtikkettenInputReaders.scala=7bbd246b382001fb408212bb4dba245b7dc3a0e2
+src\\main\\scala\\egon\\EtikkettenMaker.scala=4be79719338f8b71b94f6931f88ceb191c6ef7cd
+src\\main\\scala\\egon\\ConfigReader.scala=d2db12da0e87c8ff5b8c8252e9ddb893413d62f6
