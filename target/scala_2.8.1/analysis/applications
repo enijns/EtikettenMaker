@@ -1,4 +1,0 @@
-#Classes with main methods
-#Fri Sep 16 13:49:42 CEST 2011
-src\\main\\scala\\egon\\EtikkettenMaker.scala=egon.EtikkettenMaker
-src\\main\\scala\\egon\\ConfigReader.scala=egon.Main

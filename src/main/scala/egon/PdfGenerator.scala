@@ -14,24 +14,24 @@ import pdf._
  */
 
 object PdfGenerator {
-  val myFont = new FontFactoryImp().getFont("arial", 10, new Color(0x00FFFF))
+  val myFont = new FontFactoryImp().getFont("arial", 11, new Color(0xFF00FF))
   val fontPath = getClass.getResource("/qlassik_medium_regular.ttf").getPath
   val qLassikMediumBaseFont = BaseFont.createFont(fontPath, BaseFont.WINANSI, BaseFont.EMBEDDED)
   lazy val qLassikMediumFont = {
     val font = new Font(qLassikMediumBaseFont, 12)
-    font.setColor(new Color(0x048a04))
+    font.setColor(new Color(0x40c1f3))
     font
   }
   lazy val bloemetje:Image = {
-    val flower = Image.getInstance(getClass.getResource("/bloemetje_label.png").getPath)
+    val flower = Image.getInstance(getClass.getResource("/bloemetje_etiket.png").getPath)
     flower.scalePercent(10)
     flower
   }
   val pageMarginTop = Utilities.millimetersToPoints(4.5f)
   val pageMarginBottom = Utilities.millimetersToPoints(4.5f)
-  val pageMarginLeft = Utilities.millimetersToPoints(4.5f)
-  val pageMarginRight = Utilities.millimetersToPoints(2)
-  val colWidth = Utilities.millimetersToPoints(42)
+  val pageMarginLeft = Utilities.millimetersToPoints(3)
+  val pageMarginRight = Utilities.millimetersToPoints(1)
+  val colWidth = Utilities.millimetersToPoints(70)
 
   def generatePdf(model:EtikkettenModel, template:String, cellsToSkip:Int):File = {
     val doc = new Document
@@ -51,9 +51,8 @@ object PdfGenerator {
   }
 
   private def createNewTable() = {
-    val kolommenPerBlad: Int = 5
-    val table:PdfPTable = new PdfPTable(kolommenPerBlad)
-    table.setTotalWidth(Array(colWidth, colWidth, colWidth, colWidth, colWidth))
+    val table:PdfPTable = new PdfPTable(3)
+    table.setTotalWidth(Array(colWidth, colWidth, colWidth))
     table.setWidthPercentage(100f)
     table
   }
@@ -66,7 +65,7 @@ object PdfGenerator {
       table.addCell(createCell)
       i = i+1
     }
-    val rectanglesPerPage: Int = 100
+    val rectanglesPerPage: Int = 24
     for(map <- model.model) {
       val cell = createCell
       cell.setCellEvent(BloemetjeCellEvent)
@@ -89,7 +88,7 @@ object PdfGenerator {
   private def createCell():PdfPCell = {
     import Utilities._
     val cell = new PdfPCell
-    cell.setFixedHeight(millimetersToPoints(15))
+    cell.setFixedHeight(millimetersToPoints(36))
     cell.setBorder(0)
     cell.setPadding(millimetersToPoints(2))
     cell.setVerticalAlignment(Element.ALIGN_CENTER)
@@ -110,8 +109,8 @@ object PdfGenerator {
     override def cellLayout (cell: PdfPCell, position: Rectangle, canvases: Array[PdfContentByte]): Unit = {
       val cb:PdfContentByte = canvases(PdfPTable.BACKGROUNDCANVAS)
       cb.addImage(bloemetje, bloemetje.getWidth/2, 0f, 0f, bloemetje.getHeight/2,
-        position.getRight - (bloemetje.getWidth + 18),
-        position.getBottom + 22
+        position.getRight - bloemetje.getWidth,
+        position.getBottom + 10
       );
     }
   }

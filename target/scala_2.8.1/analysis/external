@@ -1,7 +1,0 @@
-#External Dependencies
-#Fri Sep 16 13:49:42 CEST 2011
-F\:\\egon\\code\\etikkettenMaker\\lib_managed\\scala_2.8.1\\compile\\poi-3.7.jar=src\\main\\scala\\egon\\EtikkettenInputReaders.scala
-C\:\\Program\ Files\ (x86)\\Java\\jre6\\lib\\rt.jar=src\\main\\scala\\egon\\PdfGenerator.scala;src\\main\\scala\\egon\\EtikkettenMaker.scala;src\\main\\scala\\egon\\ConfigReader.scala;src\\main\\scala\\egon\\EtikkettenInputReaders.scala
-F\:\\egon\\code\\etikkettenMaker\\lib_managed\\scala_2.8.1\\compile\\scala-swing-2.8.1.jar=src\\main\\scala\\egon\\EtikkettenMaker.scala
-F\:\\egon\\code\\etikkettenMaker\\project\\boot\\scala-2.8.1\\lib\\scala-library.jar=src\\main\\scala\\egon\\PdfGenerator.scala;src\\main\\scala\\egon\\EtikkettenMaker.scala;src\\main\\scala\\egon\\ConfigReader.scala;src\\main\\scala\\egon\\EtikkettenInputReaders.scala
-F\:\\egon\\code\\etikkettenMaker\\lib_managed\\scala_2.8.1\\compile\\itext-2.1.7.jar=src\\main\\scala\\egon\\PdfGenerator.scala

@@ -1,0 +1,5 @@
+lib_managed/**/*
+.idea/**/*
+**/*.jar
+target/**/*
+project/build/target/**/*
