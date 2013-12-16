@@ -3,3 +3,5 @@ lib_managed/**/*
 **/*.jar
 target/**/*
 project/build/target/**/*
+project/boot/**/*
+.idea/*
