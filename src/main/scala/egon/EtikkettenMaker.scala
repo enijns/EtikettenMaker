@@ -1,5 +1,6 @@
 package egon
 
+import scala.util.control.NonFatal
 import swing._
 import swing.event._
 import java.io.{File}
@@ -22,7 +23,7 @@ object EtikkettenMaker extends SimpleSwingApplication {
   try {
     UIManager.setLookAndFeel(new NimbusLookAndFeel)
   } catch {
-    case _ => //whatever, default L&F should do :)
+    case NonFatal(e) => //whatever, default L&F should do :)
   }
 	def newField = new TextField {
 		text = "0"

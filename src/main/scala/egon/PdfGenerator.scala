@@ -14,17 +14,17 @@ import pdf._
  */
 
 object PdfGenerator {
-  val myFont = new FontFactoryImp().getFont("arial", 11, new Color(0xFF00FF))
-  val fontPath = getClass.getResource("/qlassik_medium_regular.ttf").getPath
-  val qLassikMediumBaseFont = BaseFont.createFont(fontPath, BaseFont.WINANSI, BaseFont.EMBEDDED)
-  lazy val qLassikMediumFont = {
-    val font = new Font(qLassikMediumBaseFont, 12)
-    font.setColor(new Color(0x40c1f3))
+  val fontPath = getClass.getResource("/SegoePrint.ttf").getPath
+  val segoePrintFont = BaseFont.createFont(fontPath, BaseFont.WINANSI, BaseFont.EMBEDDED)
+  def segoePrintMediumFont = {
+    val font = new Font(segoePrintFont, 9)
+    font.setColor(new Color(0x00a09a))
     font
   }
   lazy val bloemetje:Image = {
-    val flower = Image.getInstance(getClass.getResource("/bloemetje_etiket.png").getPath)
-    flower.scalePercent(10)
+    //val flower = Image.getInstance(getClass.getResource("/karroosKl.png").getPath)
+    val flower = Image.getInstance(getClass.getResource("/karrooKl.png").getPath)
+    //flower.scalePercent(20)
     flower
   }
   val pageMarginTop = Utilities.millimetersToPoints(4.5f)
@@ -41,11 +41,11 @@ object PdfGenerator {
       PdfWriter.getInstance(doc, fos)
       doc.open()
       doc.setPageSize(PageSize.A4)
-      doc.setMargins(pageMarginLeft, pageMarginRight, pageMarginTop, pageMarginBottom)
+      doc.setMargins(0, 0, 0, 0)
       doc.newPage
       createPages(model, template, cellsToSkip, doc)
     } finally {
-      doc.close();
+      doc.close()
     }
     tempFile
   }
@@ -59,15 +59,14 @@ object PdfGenerator {
 
   private def createPages(model:EtikkettenModel, template:String, cellsToSkip:Int, doc:Document) {
     var i = 0
-    var res:List[PdfPTable] = Nil
-    var table = createNewTable
+    var table = createNewTable()
     for(j <- 1 to cellsToSkip) {
-      table.addCell(createCell)
+      table.addCell(createCell())
       i = i+1
     }
-    val rectanglesPerPage: Int = 24
+    val rectanglesPerPage: Int = 21//24
     for(map <- model.model) {
-      val cell = createCell
+      val cell = createCell()
       cell.setCellEvent(BloemetjeCellEvent)
       processTemplateAndPutInCell(cell, template, map)
       table.addCell(cell)
@@ -75,11 +74,11 @@ object PdfGenerator {
       if(i%rectanglesPerPage==0) {
         doc.add(table)
         doc.newPage
-        table = createNewTable
+        table = createNewTable()
       }
     }
     for(j <- 0 to i%rectanglesPerPage) {
-      table.addCell(createCell)
+      table.addCell(createCell())
     }
     doc.add(table)
     doc.newPage
@@ -88,9 +87,11 @@ object PdfGenerator {
   private def createCell():PdfPCell = {
     import Utilities._
     val cell = new PdfPCell
-    cell.setFixedHeight(millimetersToPoints(36))
+    cell.setFixedHeight(millimetersToPoints(42.4f))
     cell.setBorder(0)
-    cell.setPadding(millimetersToPoints(2))
+    cell.setPaddingLeft(millimetersToPoints(16))
+    cell.setPaddingTop(millimetersToPoints(15))
+    //cell.setPaddingLeft(millimetersToPoints(8))
     cell.setVerticalAlignment(Element.ALIGN_CENTER)
     cell
   }
@@ -99,19 +100,22 @@ object PdfGenerator {
     for(line <- template.split("\n")) {
       var lineOutput = line
       for(variableName <- map.keys) {
-        lineOutput = lineOutput.replace("${"+variableName+"}", map(variableName))
+        lineOutput = lineOutput.replace("${"+variableName+"}", map(variableName).trim)
       }
-      cell.addElement(new Paragraph(lineOutput, qLassikMediumFont))
+      lineOutput = lineOutput.replaceAll("\\$\\{.*?\\}", "").trim
+      if(lineOutput.length > 0) {
+        cell.addElement(new Paragraph(lineOutput, segoePrintMediumFont))
+      }
     }
   }
 
   object BloemetjeCellEvent extends PdfPCellEvent {
     override def cellLayout (cell: PdfPCell, position: Rectangle, canvases: Array[PdfContentByte]): Unit = {
       val cb:PdfContentByte = canvases(PdfPTable.BACKGROUNDCANVAS)
-      cb.addImage(bloemetje, bloemetje.getWidth/2, 0f, 0f, bloemetje.getHeight/2,
-        position.getRight - bloemetje.getWidth,
-        position.getBottom + 10
-      );
+      cb.addImage(bloemetje, bloemetje.getWidth, 0f, 0f, bloemetje.getHeight,
+        position.getLeft + 18,
+        position.getTop - 63
+      )
     }
   }
 }
