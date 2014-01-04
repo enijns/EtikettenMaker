@@ -87,7 +87,7 @@ class EtikkettenExcelInputReader {
       }
       model = map :: model
     }
-    return new EtikkettenModel(names, model)
+    return new EtikkettenModel(names, model.reverse)
   }
 
   def getRowsWithMergedCells(sheet:Sheet):Set[Int] = {
